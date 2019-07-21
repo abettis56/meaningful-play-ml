@@ -163,6 +163,3 @@ for i in range(100):
 
 to_excel(paths_taken, qtables)
 
-#qagent.training('1C', '5N1', 1000)
-#print (qagent.training('1C', '5N1', 1000))
-#to_excel(qagent.training('1C', '5N1', 1000))
