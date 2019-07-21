@@ -20,10 +20,10 @@ location_to_state = {
     '4N1' : 14,
     '4N2' : 15,
     '4C' : 16,
-    'Defensive' : 17,
-    'Neutral1' : 18,
-    'Neutral2' : 19,
-    'Compliant' : 20
+    'E1' : 17,
+    'E2' : 18,
+    'E3' : 19,
+    'E4' : 20
 }
 
 # Define the actions
@@ -60,15 +60,11 @@ state_to_location = dict((state,location) for location,state in location_to_stat
 gamma = 0.75 # Discount factor (discounts previous rewards)
 alpha = 0.9 # Learning rate
 
-# Get file name and final state from user
-file_name = input("Please enter a name for the spreadsheet file: ")
-final_state = input("Please enter the code of the final state: ")
-
 class QAgent():
     
-    # Initialize alpha, gamma, states, actions, rewards, and Q-values
     def __init__(self, alpha, gamma, location_to_state, actions, rewards, state_to_location, Q):
-        
+    """ Initialize alpha, gamma, states, actions, rewards, and Q-values
+    """
         self.gamma = gamma  
         self.alpha = alpha 
         
@@ -79,9 +75,9 @@ class QAgent():
         
         self.Q = Q
         
-    # Training the system in the given environment to move from a start state to an end state
     def training(self, start_location, end_location, iterations):
-        
+    """Training the system in the given environment to move from a start state to an end state
+    """
         rewards_new = np.copy(self.rewards)
         
         #set reward for end state to 999 to incentivize reaching desired end
@@ -151,7 +147,12 @@ def to_excel(paths_taken, qtables):
             worksheet.write_row(row, col, data2)
 
     workbook.close()
-        
+
+    
+# Get file name and final state from user
+file_name = input("Please enter a name for the spreadsheet file: ")
+final_state = input("Please enter the code of the final state: ")
+
 #array to store the final optimal path of each 1000 iterations
 paths_taken = []
 #array to store the final Q-Table of each 1000 iterations
