@@ -125,7 +125,6 @@ class QAgent():
             route.append(next_location)
             start_location = next_location
         
-        #print(route)
         return route
 
 #outputs 2D array
@@ -150,8 +149,8 @@ def to_excel(paths_taken, qtables):
 
     
 # Get file name and final state from user
-file_name = input("Please enter a name for the spreadsheet file: ")
-final_state = input("Please enter the code of the final state: ")
+file_name = raw_input("Please enter a name for the spreadsheet file: ")
+final_state = raw_input("Please enter the code of the final state: ")
 
 #array to store the final optimal path of each 1000 iterations
 paths_taken = []
