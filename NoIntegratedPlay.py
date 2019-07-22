@@ -60,8 +60,8 @@ alpha = 0.9 # Learning rate
 class QAgent():
     
     def __init__(self, alpha, gamma, location_to_state, rewards, state_to_location, Q):
-    """ Initialize alpha, gamma, states, actions, rewards, and Q-values
-    """
+        """ Initialize alpha, gamma, states, actions, rewards, and Q-values
+        """
         self.gamma = gamma  
         self.alpha = alpha 
         
@@ -72,8 +72,8 @@ class QAgent():
         self.Q = Q
         
     def training(self, start_location, end_location, iterations):
-    """Training the system in the given environment to move from a start state to an end state
-    """
+        """Training the system in the given environment to move from a start state to an end state
+        """
         rewards_new = np.copy(self.rewards)
         
         #set reward for end state to 999 to incentivize reaching desired end
