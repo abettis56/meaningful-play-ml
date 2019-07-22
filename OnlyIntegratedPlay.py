@@ -31,8 +31,6 @@ location_to_state = {
     'E4' : 20
 }
 
-# Define the actions
-actions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
 
 
 # Define the rewards for each state (1's represent possible paths to other states)
@@ -69,13 +67,12 @@ alpha = 0.9 # Learning rate
 class QAgent():
     
     # Initialize alpha, gamma, states, actions, rewards, and Q-values
-    def __init__(self, alpha, gamma, location_to_state, actions, rewards, state_to_location, Q):
+    def __init__(self, alpha, gamma, location_to_state, rewards, state_to_location, Q):
         
         self.gamma = gamma  
         self.alpha = alpha 
         
         self.location_to_state = location_to_state
-        self.actions = actions
         self.rewards = rewards
         self.state_to_location = state_to_location
         
@@ -83,8 +80,8 @@ class QAgent():
         
         
     def training(self, start_location, end_location, iterations):
-        """ Training the system in the given environment to move from a start state to an end state
-        """
+            """ Training the system in the given environment to move from a start state to an end state
+            """
         rewards_new = np.copy(self.rewards)
         
         #set reward for end state to 999 to incentivize reaching desired end
@@ -133,7 +130,6 @@ class QAgent():
             route.append(next_location)
             start_location = next_location
         
-        #print(route)
         return route
 
 #outputs 2D array
@@ -166,7 +162,7 @@ paths_taken = []
 #array to store the final Q-Table of each 1000 iterations
 qtables = []
 for i in range(100):
-  qagent = QAgent(alpha, gamma, location_to_state, actions, rewards,  state_to_location, np.array(np.zeros([21,21])))
+  qagent = QAgent(alpha, gamma, location_to_state, rewards,  state_to_location, np.array(np.zeros([21,21])))
   paths_taken.append(qagent.training('Start', final_state , 1000))
   qtables.append(qagent.Q)
 
