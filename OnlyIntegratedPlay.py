@@ -66,9 +66,9 @@ alpha = 0.9 # Learning rate
 
 class QAgent():
     
-    # Initialize alpha, gamma, states, actions, rewards, and Q-values
     def __init__(self, alpha, gamma, location_to_state, rewards, state_to_location, Q):
-        
+        """ Initialize alpha, gamma, states, actions, rewards, and Q-values
+        """
         self.gamma = gamma  
         self.alpha = alpha 
         
