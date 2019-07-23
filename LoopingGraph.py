@@ -58,6 +58,10 @@ state_to_location = dict((state,location) for location,state in location_to_stat
 gamma = 0.75 # Discount factor (discounts previous rewards)
 alpha = 0.9 # Learning rate
 
+# Get file name and final state from user
+file_name = input("Please enter a name for the spreadsheet file: ")
+final_state = input("Please enter the code of the final state: ")
+
 class QAgent():
     
     def __init__(self, alpha, gamma, location_to_state, rewards, state_to_location, Q):
@@ -143,11 +147,6 @@ def to_excel(paths_taken, qtables):
             worksheet.write_row(row, col, data2)
 
     workbook.close()
-
-    
-# Get file name and final state from user
-file_name = raw_input("Please enter a name for the spreadsheet file: ")
-final_state = raw_input("Please enter the code of the final state: ")
 
 #array to store the final optimal path of each 1000 iterations
 paths_taken = []
