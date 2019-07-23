@@ -83,8 +83,8 @@ class QAgent():
         
         
     def training(self, start_location, end_location, iterations):
-            """ Training the system in the given environment to move from a start state to an end state
-            """
+        """ Training the system in the given environment to move from a start state to an end state
+        """
         rewards_new = np.copy(self.rewards)
         
         #set reward for end state to 999 to incentivize reaching desired end
