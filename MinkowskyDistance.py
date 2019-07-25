@@ -25,13 +25,8 @@ def read_from_excel(file_name, array):
       
     for i in range(21):
         for j in range(21):
-            #test
-            print(' ' + str(sheet.cell_value(i,j)))
-            
             array.append(sheet.cell_value(i, j)) 
-
-        #test
-        print("\n")
+            
 read_from_excel(file_name_one, first_average)
 read_from_excel(file_name_two, second_average)
 
@@ -54,5 +49,5 @@ def minkowski_distance(x, y, p_value):
             for a, b in zip(x, y)), p_value))
 
 #Output distances with p-values 1 and 2
-print(minkowski_distance(first_average, second_average, 1))
-print(minkowski_distance(first_average, second_average, 2))
+print("Minkowski distance with p-value 1: " + str(minkowski_distance(first_average, second_average, 1)))
+print("Minkowski distance with p-value 2: " + str(minkowski_distance(first_average, second_average, 2)))
